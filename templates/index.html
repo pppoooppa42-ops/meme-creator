@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+<body>
+    <h1>Генератор мемов</h1>
+    <form method="POST">
+        <input type="text" name="image_name" placeholder="Введи название картинки" required>
+        <input type="submit">
+    </form>
+
+    <h2>Выбранная картинка:</h2>
+    <!-- Здесь будем выводить картинку -->
+{% if image_name %}
+    <img src="{{ url_for('serve_image', filename=image_name) }}" 
+         alt="{{ image_name }}">
+{% endif %}
+</body>
+</html>
